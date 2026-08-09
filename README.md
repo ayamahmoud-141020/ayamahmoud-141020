@@ -1,9 +1,9 @@
-<h1 align="center">👩‍💻 Aya Mahmoud Zaki</h1>
+<h1 align="center">Hi 👋! I'm Aya Mahmoud Zaki</h1>
+<h3 align="center">Full Stack Web Developer from Egypt 🇪🇬</h3>
 
-<p align="center">
-  <b>Full Stack Web Developer</b><br/>
-  Giza, Egypt
-</p>
+<div align="center">
+  <img src="https://media1.tenor.com/m/Ug6cbVA1ZsMAAAAd/developer.gif" height="200" alt="developer gif" />
+</div>
 
 <p align="center">
   <a href="mailto:ayamahmoudzaki421@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
