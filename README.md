@@ -1,9 +1,9 @@
-<h1 align="center">Hi 👋! I'm Aya Mahmoud Zaki</h1>
-<h3 align="center">Full Stack Web Developer from Egypt 🇪🇬</h3>
+<h1 align="center">Hi 👋, I'm Aya Mahmoud Zaki</h1>
+<h3 align="center">Software Developer · AI &amp; Automation · Python · TypeScript · .NET</h3>
 
-<div align="center">
+<p align="center">
   <img src="https://media1.tenor.com/m/Ug6cbVA1ZsMAAAAd/developer.gif" height="200" alt="developer gif" />
-</div>
+</p>
 
 <p align="center">
   <a href="mailto:ayamahmoudzaki421@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
@@ -18,152 +18,130 @@
 
 ---
 
-## About Me
+## 🙋‍♀️ About Me
 
-Versatile Computer Science graduate with expertise in **Medical Informatics** and hands-on full-stack development experience using ASP.NET Core, Entity Framework, React.js, Node.js, TypeScript, and Tailwind CSS. Proven ability to design and implement scalable, multilingual web applications with modern UI/UX while specializing in medical image analysis using Python, TensorFlow, and Keras.
+I turn business problems into working applications, integrations and automated workflows.
 
-Currently leading full-stack development across multiple technology stacks (Node.js, React, Angular, .NET, Next.js) at **Ignteq**, delivering scalable web applications for diverse business requirements. Strong foundation in AI/Machine Learning, database management, microservices architecture, and performance-focused web development. Passionate about bridging healthcare technology with robust full-stack solutions and writing clean, maintainable code.
+I use **AI coding tools (Claude Code)** every day to plan, build and debug. I treat AI output like a teammate's pull request: I read it, test it, and fix what breaks. Every project below ships with automated tests and CI.
 
-- 🎓 Computer and Information Science Graduate — Helwan University (July 2024) | GPA: **3.67**
-- 🌍 Location: Giza, Egypt
-- 💼 Current Role: Full-Stack Developer at **Ignteq** (Jun 2025 – Present)
-- 📧 Email: [ayamahmoudzaki421@gmail.com](mailto:ayamahmoudzaki421@gmail.com)
-- 📱 Phone: (+20) 1055973408
+- 💼 **Software Engineer at ignteQ** (Jun 2025 – present): HotelGate (travel platform, ~40 .NET microservices) and Gental (Arabic-first AI agent builder with RAG and LLM tool-calling)
+- 🎓 B.Sc. Computer Science, Helwan University (2024), GPA 3.67, Medical Informatics
+- 🌍 Giza, Egypt · open to remote work
 
 ---
 
-## 💼 Professional Experience
+## 🚀 Featured Projects
 
-### 🏢 Full-Stack Developer — Ignteq · *Jun 2025 – Present*
+### 💊 [RxFlow: prescription intake automation](https://github.com/ayamahmoud-141020/rxflow)
+`Python` `FastAPI` `PostgreSQL` `React` `TypeScript` `OCR` `LLM` `Docker` `GitHub Actions`
 
-Leading full-stack development across multiple technology stacks including Node.js, React, Angular, .NET, and Next.js, delivering scalable web applications for diverse business requirements.
+Pharmacies retype faxed prescriptions by hand. RxFlow automates it end to end:
 
-- 🏨 Developed microservices for **HotelGate**, a hotel booking platform — owned the Search/Orchestration module, including provider integration and booking flow
-- 🎓 Architecting and developing **LearnKhana**, a comprehensive e-learning platform supporting B2B, B2C, and back-office operations with course management, user authentication, payment processing, and administrative dashboards
-- ⚛️ Building responsive course delivery systems using React and Next.js for frontend, Node.js and .NET for backend APIs, and Angular for administrative interfaces
-- 🏗️ Implementing modern full-stack architecture with RESTful APIs, microservices patterns, and responsive UI/UX design ensuring high performance and scalability
+- **Intake:** file upload, or a cloud fax provider calls a **signed (HMAC) webhook**
+- **AI extraction with a safety net:** OCR, then an optional LLM extractor with strict JSON output. **If the LLM fails, rules take over automatically.**
+- **Validation:** NPI/DEA checksums, fuzzy formulary matching for OCR typos, controlled-substance rules, and an eligibility API client with retries and exponential backoff
+- **Routing:** clean prescriptions are auto-approved; the rest go to a pharmacist review queue
+- **Security:** role-based access, JWT, append-only audit trail, PHI redaction in logs, secrets kept in environment variables
+- **Verified:** 34 pytest tests, run by GitHub Actions on every push
 
-### 🏢 Full-Stack Developer — Giza Power Industry · *Nov 2024 – Jun 2025*
+### 🔐 [Identity & Authentication Module](https://github.com/ayamahmoud-141020/identity-auth-module)
+`NestJS` `MongoDB` `React` `TypeScript` `Zod` `Docker` `CI`
 
-Led complete full-stack development of an integrated Payroll System, migrating a legacy Visual Basic application to modern .NET API endpoints with a comprehensive frontend using React, TypeScript, and Tailwind CSS.
+Sign-up, sign-in, and silent session refresh with **token rotation and reuse detection**. Passwords are hashed with argon2id, and one shared validation contract is used by the web forms, the API and the domain. Fully documented: API reference, security model and trade-offs.
 
-- 🏗️ Architected and developed comprehensive RESTful APIs and responsive user interfaces supporting payroll processing, employee management, salary calculations, and reporting modules
-- 🎨 Designed and optimized Microsoft SQL Server database schema and queries while implementing dynamic frontend dashboards with Chart.js and Alpine.js, improving system performance by **15%**
-- 🔗 Managed system integrations and developed seamless frontend interfaces between the Payroll System and existing enterprise applications
-- 🛠️ Provided full-stack technical support and maintenance for a complex ERP system in the cable manufacturing industry
+### 🧠 Deep Learning for Multiple Sclerosis Diagnosis (graduation project, team lead)
+`Python` `TensorFlow` `Keras` `DeepLabV3+`
+
+MRI classification and segmentation. Compared 16 models; EfficientNetB0 reached **97% accuracy** (precision and recall > 0.96). Includes a web interface where clinicians upload scans and get results with confidence scores.
+
+---
+
+## 💼 What I Build at Work
+
+**ignteQ — HotelGate** (.NET 8, SQL Server, Elasticsearch, Redis, RabbitMQ, Google Cloud)
+- Automated notification and voucher workflow (transactional outbox, background workers, retries, idempotency keys), so booking emails are no longer lost
+- Haramain train ticketing integration with a third-party provider; multi-provider hotel search
+- Fixed production bugs end to end, each backed by tests (time-zone refund rules, auth middleware context, search error handling)
+- Coordinated UAT with partner companies and QA, and wrote technical documentation
+
+**ignteQ — Gental** (.NET 10, PostgreSQL + pgvector, Pub/Sub, Next.js, RAG, LLM tool-calling)
+- Sign-up abuse protection, plus an atomic onboarding fix covered by integration and Playwright end-to-end tests
+
+**Giza Power Industry** (Nov 2024 – Jun 2025)
+- Replaced a legacy Visual Basic HR & Payroll app with ASP.NET Core and React/TypeScript; made queries 15% faster; integrated it with the company's ERP systems
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+**AI & Automation:** Claude Code · LLM APIs (structured output, RAG, tool-calling) · OCR · webhooks · background jobs & retries
 
+<p>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt="C#"/>
+  <img src="https://img.shields.io/badge/SQL-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL"/>
+</p>
+
+**Backend & APIs**
+<p>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white" alt="NestJS"/>
+  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express"/>
+  <img src="https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET"/>
+</p>
+
+**Frontend**
 <p>
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React"/>
   <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white" alt="Redux"/>
-  <img src="https://img.shields.io/badge/Zustand-443E38?style=flat-square&logo=react&logoColor=white" alt="Zustand"/>
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white" alt="Angular"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
-  <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap"/>
-  <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white" alt="Chart.js"/>
-  <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-square&logo=jquery&logoColor=white" alt="jQuery"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3"/>
 </p>
 
-React.js · Next.js · React Router · Redux.js · Zustand · TypeScript · JavaScript (ES6+) · Alpine.js · Chart.js · i18n · jQuery · Tailwind CSS · Bootstrap · CSS3 · HTML5
-
-**Backend & Others**
-
+**Data**
 <p>
-  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js"/>
-  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express"/>
-  <img src="https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET"/>
-  <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java"/>
-  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot"/>
-  <img src="https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white" alt="Prisma"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
   <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL Server"/>
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white" alt="Postman"/>
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis"/>
+  <img src="https://img.shields.io/badge/Elasticsearch-005571?style=flat-square&logo=elasticsearch&logoColor=white" alt="Elasticsearch"/>
 </p>
 
-Node.js · Express.js · .NET Core · Java · Spring Boot · Hibernate · Razor Pages · Entity Framework · Dapper · Prisma · MS SQL Server · MongoDB · Git & GitHub · REST APIs · Postman
-
-**Architecture & Design Patterns**
-
-Repository Pattern · Service Layer Pattern · MVC Architecture
+**Deploy & Tools**
+<p>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker"/>
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="Google Cloud"/>
+  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white" alt="RabbitMQ"/>
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git"/>
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white" alt="Playwright"/>
+  <img src="https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="pytest"/>
+</p>
 
 ---
 
-## 🏆 Featured Projects
+## 🧪 How I Work with AI
 
-### 🏨 HotelGate Platform — Full-Stack Developer · *Jul 2025 – Present*
-
-`Node.js` `.NET` `Microservices` `ASP.NET Core`
-
-- Developed and maintained backend microservices for HotelGate, a hotel booking and distribution platform, owning the Search and Orchestration module including provider integration and pricing logic
-- Diagnosed and resolved a critical authentication middleware bug affecting user context resolution across multiple services, involving custom type resolution and scoped dependency injection in ASP.NET Core
-- Refactored core search orchestration logic, improving reliability of provider communication and error handling
-- Collaborated with cross-company stakeholders to coordinate UAT cycles and validate pricing calculations
-- Produced technical documentation covering supplier integration, pricing logic, and system architecture
-
-### 🎓 LearnKhana — Full-Stack Developer · *Jun 2025 – Present*
-
-`React` `Next.js` `Angular` `Node.js` `.NET` `Zustand` `Redux Toolkit`
-
-- Architecting and developing a comprehensive e-learning platform supporting B2B, B2C, and back-office operations
-- Built course management, user authentication, payment processing, and administrative dashboards
-- Used both Zustand and Redux Toolkit for state management across the platform
-
-### 💼 Payroll Management System — Full-Stack Developer · *May 2024 – Jul 2024*
-
-`ASP.NET Core MVC` `Dapper` `SQL Server` `Tailwind CSS` `JavaScript`
-
-- Developed a comprehensive payroll management system handling salaries, deductions, bonuses, and attendance tracking
-- Implemented role-based access control (RBAC) for HR, employees, and managers using ASP.NET Identity
-- Architected an efficient data access layer using the Dapper micro-ORM combined with LINQ for dynamic queries
-- Designed a responsive modern UI enabling salary slip generation, interactive dashboards, and history logs
-
-### 🤖 Advanced Deep Learning for Multiple Sclerosis Diagnosis — Team Leader · *Jul 2023 – Apr 2024*
-
-`TensorFlow` `Keras` `Python` `DeepLabv3+` `EfficientNetB0`
-
-- Led a cross-functional team developing a diagnostic system using 2D/3D deep learning models and DeepLabv3+ for MRI segmentation, managing 16 machine learning models
-- Architected a comprehensive medical imaging pipeline processing MRI scans with advanced preprocessing and augmentation
-- Built a user-facing diagnostic platform for healthcare professionals with automated diagnostic results and confidence scores
-- Achieved **97% classification accuracy** using the EfficientNetB0 architecture with precision/recall scores above 0.96
-- 🔗 [Kaggle Project](https://www.kaggle.com)
-
-### 🏥 Doctor–Patient Appointment Management System · *Aug 2024 – Sep 2024*
-
-`ASP.NET Core` `EF Core` `SQL Server` `HTML` `CSS` `JavaScript`
-
-- Developed a full-stack web app for scheduling appointments and managing patient/doctor profiles
-- Designed secure login, an admin dashboard, and real-time availability tracking
-- Built a dynamic UI for different user roles (Admin, Doctor, Patient) with appointment status and feedback flows
+1. **Understand the problem first:** I turn the business need into clear requirements before writing code.
+2. **Build with AI:** I use Claude Code to plan, scaffold and implement.
+3. **Review everything:** I read and understand every change, then refactor what doesn't fit.
+4. **Prove it works:** unit, integration and end-to-end tests, plus CI on every push.
+5. **Protect data:** secrets in environment variables, role-based access, audit logs, no sensitive data in logs.
+6. **Explain it:** READMEs, architecture diagrams, and plain-language updates for non-technical stakeholders.
 
 ---
 
 ## 🎓 Education & Courses
 
-### Bachelor of Computer Science
+**B.Sc. Computer Science**, Helwan University · 2020 – 2024 · GPA 3.67 · Specialization: Medical Informatics
 
-**Helwan University** · Aug 2020 – Jul 2024 · GPA: **3.67** · Specialization: Medical Informatics
-
-### 📜 Courses & Bootcamps
-
-- ✅ .NET Bootcamp Internship — Upskilling *(Jun 2025 – Present)*
-- ✅ Next.js, React.js & TypeScript Bootcamp — Codeawy *(Apr 2025 – Jul 2025)*
-- ✅ Ultimate React Bootcamp — Scrimba *(Jun 2023 – Sep 2023)*
-- ✅ Web Developer Challenger Track — EGFwd, Udacity *(Jan 2022 – May 2022)*
-- ✅ The Complete ASP.NET Core MVC Course
-- ✅ ASP.NET Core 6 Web API – The Complete Guide
-- ✅ .NET Full Stack Development — Digital Egypt Pioneers Scholarship *(2024)*
-- ✅ Instant Data Science Certificate *(2023)*
-- ✅ AI Training Completion Certificate *(2023)*
+- ✅ .NET Full Stack Development — Digital Egypt Pioneers Initiative (DEPI)
+- ✅ Next.js, React.js & TypeScript Bootcamp — Codeawy
+- ✅ Web Developer Challenger Track — EGFwd, Udacity
+- ✅ AI Training Completion Certificate · Instant Data Science Certificate
 
 ---
 
@@ -179,18 +157,6 @@ Repository Pattern · Service Layer Pattern · MVC Architecture
 </p>
 
 ---
-
-## 🎯 Current Goals
-
-- 🚀 Contributing to impactful software projects across multiple stacks (Node.js, .NET, React, Angular, Next.js)
-- 📈 Growing expertise in microservices architecture and cloud technologies
-- 🏥 Bridging healthcare technology with robust full-stack solutions
-- 🤝 Collaborating with dynamic, cross-company development teams
-- 🌱 Continuous learning in AI/Machine Learning and modern web development practices
-
----
-
-## 🌐 Connect with Me
 
 <p align="center">
   <a href="https://linkedin.com/in/aya-mahmoud-zaki-180a30266">LinkedIn</a> •
