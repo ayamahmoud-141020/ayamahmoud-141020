@@ -1,80 +1,99 @@
-<h1 align="center">Hi 👋, I'm Aya Mahmoud Zaki</h1>
-<h3 align="center">Software Developer · AI &amp; Automation · Python · TypeScript · .NET</h3>
+# Aya Mahmoud Zaki
 
-<p align="center">
-  <img src="https://media1.tenor.com/m/Ug6cbVA1ZsMAAAAd/developer.gif" height="200" alt="developer gif" />
-</p>
+**Software Developer · AI & Automation · Python · TypeScript · .NET**
+Giza, Egypt · open to remote work
 
-<p align="center">
+<p>
   <a href="mailto:ayamahmoudzaki421@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
   <a href="https://linkedin.com/in/aya-mahmoud-zaki-180a30266"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="https://github.com/ayamahmoud-141020"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-  <img src="https://img.shields.io/badge/%2B20%201055973408-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Phone"/>
 </p>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ayamahmoud-141020&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views"/>
-</p>
-
----
-
-## 🙋‍♀️ About Me
+## About Me
 
 I turn business problems into working applications, integrations and automated workflows.
 
-I use **AI coding tools (Claude Code)** every day to plan, build and debug. I treat AI output like a teammate's pull request: I read it, test it, and fix what breaks. Every project below ships with automated tests and CI.
+I use AI coding tools (Claude Code) every day to plan, build and debug. I treat AI output like a teammate's pull request: I read it, test it, and fix what breaks. Every project below ships with automated tests.
 
-- 💼 **Software Engineer at ignteQ** (Jun 2025 – present): HotelGate (travel platform, ~40 .NET microservices) and Gental (Arabic-first AI agent builder with RAG and LLM tool-calling)
-- 🎓 B.Sc. Computer Science, Helwan University (2024), GPA 3.67, Medical Informatics
-- 🌍 Giza, Egypt · open to remote work
-
----
-
-## 🚀 Featured Projects
-
-### 💊 [RxFlow: prescription intake automation](https://github.com/ayamahmoud-141020/rxflow)
-`Python` `FastAPI` `PostgreSQL` `React` `TypeScript` `OCR` `LLM` `Docker` `GitHub Actions`
-
-Pharmacies retype faxed prescriptions by hand. RxFlow automates it end to end:
-
-- **Intake:** file upload, or a cloud fax provider calls a **signed (HMAC) webhook**
-- **AI extraction with a safety net:** OCR, then an optional LLM extractor with strict JSON output. **If the LLM fails, rules take over automatically.**
-- **Validation:** NPI/DEA checksums, fuzzy formulary matching for OCR typos, controlled-substance rules, and an eligibility API client with retries and exponential backoff
-- **Routing:** clean prescriptions are auto-approved; the rest go to a pharmacist review queue
-- **Security:** role-based access, JWT, append-only audit trail, PHI redaction in logs, secrets kept in environment variables
-- **Verified:** 34 pytest tests, run by GitHub Actions on every push
-
-### 🔐 [Identity & Authentication Module](https://github.com/ayamahmoud-141020/identity-auth-module)
-`NestJS` `MongoDB` `React` `TypeScript` `Zod` `Docker` `CI`
-
-Sign-up, sign-in, and silent session refresh with **token rotation and reuse detection**. Passwords are hashed with argon2id, and one shared validation contract is used by the web forms, the API and the domain. Fully documented: API reference, security model and trade-offs.
-
-### 🧠 Deep Learning for Multiple Sclerosis Diagnosis (graduation project, team lead)
-`Python` `TensorFlow` `Keras` `DeepLabV3+`
-
-MRI classification and segmentation. Compared 16 models; EfficientNetB0 reached **97% accuracy** (precision and recall > 0.96). Includes a web interface where clinicians upload scans and get results with confidence scores.
+- Software Engineer at **ignteQ** (Jun 2025 – present)
+- Full-Stack Developer at **Giza Power Industry** (Nov 2024 – Jun 2025)
+- B.Sc. Computer Science, Helwan University (2024), GPA 3.67, Medical Informatics
 
 ---
 
-## 💼 What I Build at Work
+## Work Projects
 
-**ignteQ — HotelGate** (.NET 8, SQL Server, Elasticsearch, Redis, RabbitMQ, Google Cloud)
-- Automated notification and voucher workflow (transactional outbox, background workers, retries, idempotency keys), so booking emails are no longer lost
-- Haramain train ticketing integration with a third-party provider; multi-provider hotel search
-- Fixed production bugs end to end, each backed by tests (time-zone refund rules, auth middleware context, search error handling)
-- Coordinated UAT with partner companies and QA, and wrote technical documentation
+### HotelGate: B2B/B2C travel platform
+*ignteQ · .NET 8 · SQL Server · Elasticsearch · Redis · RabbitMQ · Google Cloud (GKE, KMS)*
 
-**ignteQ — Gental** (.NET 10, PostgreSQL + pgvector, Pub/Sub, Next.js, RAG, LLM tool-calling)
-- Sign-up abuse protection, plus an atomic onboarding fix covered by integration and Playwright end-to-end tests
+A Saudi travel platform for hotels, Umrah packages and Haramain train tickets, built from about 40 microservices.
 
-**Giza Power Industry** (Nov 2024 – Jun 2025)
-- Replaced a legacy Visual Basic HR & Payroll app with ASP.NET Core and React/TypeScript; made queries 15% faster; integrated it with the company's ERP systems
+- Built an automated notification and voucher workflow using a transactional outbox. Background workers retry with backoff and skip duplicates using idempotency keys, so booking emails are no longer lost.
+- Shipped the Haramain train ticketing integration with a third-party provider.
+- Worked on the search and orchestration services that combine results from several hotel providers: returned empty results instead of 500 errors, fixed fields dropped from the Redis cache, and added room grouping.
+- Fixed a cancellation-policy time-zone bug that shifted refund tiers by 3 hours, backed by tests.
+- Diagnosed an authentication-middleware bug, caused by dependency-injection scoping, that gave services the wrong user context.
+- Made Elasticsearch index rebuilds zero-downtime with atomic alias swaps and rollback.
+- Built hotel-inventory features in the Next.js supplier extranet.
+- Coordinated UAT with partner companies and QA, and wrote documentation for supplier integration and pricing logic.
+
+### Gental: Arabic-first AI agent builder
+*ignteQ · .NET 10 · PostgreSQL + pgvector · Google Pub/Sub · Next.js · RAG · LLM tool-calling*
+
+- Protected sign-up against abuse with a disposable-email blocklist that fails fast on bad configuration. Integration tests prove a refused sign-up saves nothing.
+- Fixed an onboarding bug that left website crawls running with no owner by moving onboarding state into one atomic server-side command, covered by an atomicity test and Playwright end-to-end tests.
+
+### Shamouly: holistic medicine platform
+*ignteQ*
+
+- Owned the specialist-side modules: Services, Medication Library, Settings and Courses.
+
+### LearnKhana: B2B/B2C e-learning platform
+*ignteQ · React · Next.js · Angular · Node.js · .NET*
+
+- Delivered features end to end across React/Next.js frontends, Node.js and .NET APIs, and an Angular admin dashboard, covering course management, authentication and payments.
+
+### HR & Payroll System
+*Giza Power Industry · ASP.NET Core · React · TypeScript · Tailwind CSS · SQL Server*
+
+- Replaced a legacy Visual Basic HR & Payroll desktop app with ASP.NET Core APIs and a React/TypeScript frontend.
+- Redesigned the SQL Server schema and queries (15% faster) and built reporting dashboards with Chart.js.
+- Integrated payroll with the company's existing ERP systems, and supported the ERP's production and inventory modules.
 
 ---
 
-## 🛠️ Tech Stack
+## Personal Projects
 
-**AI & Automation:** Claude Code · LLM APIs (structured output, RAG, tool-calling) · OCR · webhooks · background jobs & retries
+### [RxFlow: prescription intake automation](https://github.com/ayamahmoud-141020/rxflow)
+*Python · FastAPI · PostgreSQL · React · TypeScript · Tesseract OCR · LLM · Docker · GitHub Actions*
+
+Pharmacies retype faxed prescriptions by hand. RxFlow automates it end to end.
+
+- **Intake:** file upload, or a cloud fax provider calls a signed (HMAC) webhook.
+- **AI extraction with a safety net:** OCR, then an optional LLM extractor with strict JSON output. If the LLM fails, rules take over automatically.
+- **Validation:** NPI/DEA checksums, fuzzy formulary matching for OCR typos, controlled-substance rules, and an eligibility API client with retries and exponential backoff.
+- **Routing:** clean prescriptions are auto-approved; the rest go to a pharmacist review queue.
+- **Security:** role-based access, JWT, append-only audit trail, PHI redaction in logs, secrets in environment variables.
+- **Verified:** 34 pytest tests, run by GitHub Actions on every push.
+
+### [Identity & Authentication Module](https://github.com/ayamahmoud-141020/identity-auth-module)
+*NestJS · MongoDB · React · TypeScript · Zod · Docker · GitHub Actions*
+
+- Sign-up, sign-in, and silent session refresh with token rotation and reuse detection.
+- Passwords hashed with argon2id. One shared validation contract is used by the web forms, the API and the domain.
+- Fully documented: API reference, security model and trade-offs.
+
+### Deep Learning for Multiple Sclerosis Diagnosis (graduation project, team lead)
+*Python · TensorFlow · Keras · DeepLabV3+*
+
+- MRI classification and segmentation. Compared 16 models; EfficientNetB0 reached 97% accuracy (precision and recall above 0.96).
+- Built a web interface where clinicians upload scans and get results with confidence scores.
+
+---
+
+## Tech Stack
+
+**AI & Automation:** Claude Code · LLM APIs (structured output, RAG, tool-calling) · OCR · webhooks · background jobs and retries
 
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
@@ -123,7 +142,7 @@ MRI classification and segmentation. Compared 16 models; EfficientNetB0 reached 
 
 ---
 
-## 🧪 How I Work with AI
+## How I Work with AI
 
 1. **Understand the problem first:** I turn the business need into clear requirements before writing code.
 2. **Build with AI:** I use Claude Code to plan, scaffold and implement.
@@ -134,32 +153,20 @@ MRI classification and segmentation. Compared 16 models; EfficientNetB0 reached 
 
 ---
 
-## 🎓 Education & Courses
+## Education & Courses
 
 **B.Sc. Computer Science**, Helwan University · 2020 – 2024 · GPA 3.67 · Specialization: Medical Informatics
 
-- ✅ .NET Full Stack Development — Digital Egypt Pioneers Initiative (DEPI)
-- ✅ Next.js, React.js & TypeScript Bootcamp — Codeawy
-- ✅ Web Developer Challenger Track — EGFwd, Udacity
-- ✅ AI Training Completion Certificate · Instant Data Science Certificate
+- .NET Full Stack Development — Digital Egypt Pioneers Initiative (DEPI)
+- Next.js, React.js & TypeScript Bootcamp — Codeawy
+- Web Developer Challenger Track — EGFwd, Udacity
+- AI Training Completion Certificate · Instant Data Science Certificate
 
 ---
 
-## 📊 GitHub Stats
+## GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ayamahmoud-141020&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ayamahmoud-141020&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayamahmoud-141020&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages"/>
-</p>
-
----
-
-<p align="center">
-  <a href="https://linkedin.com/in/aya-mahmoud-zaki-180a30266">LinkedIn</a> •
-  <a href="https://github.com/ayamahmoud-141020">GitHub</a> •
-  <a href="mailto:ayamahmoudzaki421@gmail.com">Gmail</a>
+<p>
+  <img src="https://github-readme-stats.vercel.app/api?username=ayamahmoud-141020&show_icons=true&hide_border=true" alt="GitHub Stats" height="165"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayamahmoud-141020&layout=compact&hide_border=true&langs_count=8" alt="Top Languages" height="165"/>
 </p>
