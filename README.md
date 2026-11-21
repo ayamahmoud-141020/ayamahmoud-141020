@@ -1,6 +1,7 @@
 # Aya Mahmoud Zaki
 
 **Software Developer · AI & Automation · Python · TypeScript · .NET**
+
 Giza, Egypt · open to remote work
 
 <p>
